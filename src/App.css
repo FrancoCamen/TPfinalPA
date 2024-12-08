@@ -1,38 +1,267 @@
-.App {
-  text-align: center;
+/* Contenedor de la lista de productos */
+.product-list {
+    display: grid;
+    /* Usamos Grid para organizar los productos */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    /* Ajustable según el ancho */
+    gap: 16px;
+    /* Espacio entre los productos */
+    padding: 16px;
+    width: 100%;
+    max-width: 1200px;
+    /* Ajuste máximo */
+    margin: 0 auto;
+    /* Centrar la lista */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Estilo para cada tarjeta de producto */
+.product-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 16px;
+    transition: transform 0.3s ease;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.product-card:hover {
+    transform: translateY(-5px);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 8px;
+    border-radius: 4px;
 }
 
-.App-link {
-  color: #61dafb;
+.product-card h3 {
+    font-size: 1.1rem;
+    margin: 8px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.product-card p {
+    color: var(--primary);
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.product-card a {
+    text-decoration: none;
+    color: white;
+    background-color: var(--primary);
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.product-card a:hover {
+    background-color: #ff9e40;
+}
+
+/* Estilos para el header y logo */
+
+.navbar {
+    width: 100%;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+/* Estilo para la imagen del header */
+.header-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.header-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Estilo para el logo */
+.logo-container {
+    margin-top: -60px;
+    /* Para posicionar el logo dentro del header */
+}
+
+.logo {
+    width: 150px;
+    /* Ajusta el tamaño del logo */
+    height: auto;
+}
+
+/* Estilos para la barra de navegación */
+.nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style-type: none;
+    padding: 10px 0;
+}
+
+.nav-links li {
+    font-size: 1.2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: #fb7b04;
+}
+
+.header__balance {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+    background-color: #cceeff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid #007BFF;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+.header__balance:hover {
+    background-color: #b3e0ff;
+    border-color: #0056b3;
+}
+
+.header__balance-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.buy-button {
+    padding: 12px 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #0056b3;
+}
+
+/* Contenedor principal de la vista detallada */
+.product-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 16px;
+    background-color: #f9f9f9;
+}
+
+/* Contenedor para la imagen y la información */
+.product-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    width: 100%;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 24px;
+    gap: 24px;
+}
+
+/* Estilo de la imagen del producto */
+.product-detail img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+/* Información del producto */
+.product-detail-info {
+    text-align: center;
+}
+
+.product-detail-info h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #333;
+}
+
+.product-detail-info p {
+    font-size: 1.25rem;
+    margin: 8px 0;
+    color: #555;
+}
+
+.product-detail-info strong {
+    font-weight: 600;
+}
+
+/* Botón de compra */
+.buy-button {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-top: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    background-color: #FB7B04;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #d96a03;
+}
+
+/* Diseño responsivo */
+@media (max-width: 768px) {
+    .product-detail {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .product-detail img {
+        max-width: 300px;
+    }
+
+    .product-detail-info h1 {
+        font-size: 1.5rem;
+    }
+
+    .product-detail-info p {
+        font-size: 1rem;
+    }
+
+    .buy-button {
+        font-size: 0.9rem;
+    }
 }
